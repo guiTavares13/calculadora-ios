@@ -1,15 +1,18 @@
+import { useState } from "react";
 import { StyleSheet, Dimensions, Text, SafeAreaView, TouchableOpacity, View } from "react-native";
 
 
-export default function buttom(simbol) {
-  
+export default function buttom(props) {
+    
+    const [ valor1, setValor1 ] = useState();
 
+    charButtom = props[0]
+    console.log(charButtom)
     return(
-
-        <SafeAreaView styles={styles.container}>
-            <View styles={styles.buttom}>
-                <Text>1</Text>
-            </View>
+        <SafeAreaView style={styles.container}>
+            <TouchableOpacity onPress={() => {}}style={styles.buttom}>
+                <Text style={styles.textButtom}>{charButtom}</Text>
+            </TouchableOpacity>
         </SafeAreaView>
     )
 }
@@ -17,16 +20,22 @@ export default function buttom(simbol) {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: 'black',
         alignItems: 'center',
         justifyContent: "center",
     },
     buttom: {
-        width: Dimensions.get('window').width*0.2,
-        height: Dimensions.get('window').height*0.2,
-
-        borderRadius: 20,
-        backgroundColor: 'gray'
+        width: 80,
+        height: 80,
+        borderColor: 'black',
+        borderRadius: 50,
+        backgroundColor: 'gray',
+        justifyContent: 'center',
+        alignItems: 'center',
+        textAlign: 'center',
+        margin: 5
+    },
+    textButtom: {
+        color: '#fff'
     }
 })
