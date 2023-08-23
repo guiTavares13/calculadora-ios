@@ -1,41 +1,51 @@
 import { useState } from "react";
-import { StyleSheet, Dimensions, Text, SafeAreaView, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Dimensions, Text, TouchableHighlight } from "react-native";
 
 
-export default function buttom(props) {
+export default (props) => {
+
+    const stylesButtons = [styles.button];
+
+    if(props.buttomOperations) {
+        stylesButtons.push(styles.buttomOperations);
+    }
+
+    if(props.buttonTop) {
+        stylesButtons.push(styles.buttonTop)
+    }
+
+    if(props.buttonDouble) {
+        stylesButtons.push(styles.buttonDouble)
+    }
     
-    const [ valor1, setValor1 ] = useState();
-
-    charButtom = props[0]
-    console.log(charButtom)
     return(
-        <SafeAreaView style={styles.container}>
-            <TouchableOpacity onPress={() => {}}style={styles.buttom}>
-                <Text style={styles.textButtom}>{charButtom}</Text>
-            </TouchableOpacity>
-        </SafeAreaView>
+        <TouchableHighlight onPress={props.onClick}>
+            <Text style={stylesButtons}>{props.label}</Text>
+        </TouchableHighlight>
     )
 }
 
 
 const styles = StyleSheet.create({
-    container: {
-        backgroundColor: 'black',
-        alignItems: 'center',
-        justifyContent: "center",
-    },
-    buttom: {
-        width: 80,
-        height: 80,
-        borderColor: 'black',
+    button: {
+        width: Dimensions.get('window').width / 4 - 15,
+        height: Dimensions.get('window').height / 4 - 80,
+        fontSize: 35,
+        padding: 15,
         borderRadius: 50,
-        backgroundColor: 'gray',
-        justifyContent: 'center',
-        alignItems: 'center',
+        backgroundColor: '#333',
         textAlign: 'center',
-        margin: 5
+        marginLeft: 15,
+        marginTop: 15
     },
-    textButtom: {
-        color: '#fff'
+    buttomOperations: {
+        backgroundColor: "#e67e00"
+    },
+    buttonTop: {
+        backgroundColor: '#b3b3b3',
+        color: '#000',
+    },
+    buttonDouble: {
+        width: (Dimensions.get('window').width/4) * 2 - 15
     }
 })
