@@ -35,11 +35,13 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         backgroundColor: '#333',
         textAlign: 'center',
+        color: "#fff",
         marginLeft: 15,
         marginTop: 15
     },
     buttomOperations: {
-        backgroundColor: "#e67e00"
+        backgroundColor: "#e67e00",
+        color: "#fff"
     },
     buttonTop: {
         backgroundColor: '#b3b3b3',
